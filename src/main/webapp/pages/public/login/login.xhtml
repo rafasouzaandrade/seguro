@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"> <![endif]-->
+	<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"> <![endif]-->
+	<!--[if IE 8]>         <html class="no-js lt-ie9" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"> <![endif]-->
+	<!--[if gt IE 8]><!--> <html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"> <!--<![endif]-->
+	<h:head>
+		<meta charset="utf-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>#{msg['projeto.nome']}</title>
+		<h:outputStylesheet name="css/bootstrap.min.css" />
+		<h:outputStylesheet name="css/bootstrap-theme.min.css" />
+		<h:outputStylesheet name="css/main.css" />
+		<h:outputScript name="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"/>
+	</h:head>
+	<h:body>
+		<!--[if lt IE 7]>
+	        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	    <![endif]-->
+	
+		<div class="container">
+			<form class="form-signin" role="form" method="post" action="j_security_check">
+				<h2 class="form-signin-heading">Please sign in</h2>
+				<input type="text" id="j_username" name="j_username" placeholder="Email address" class="form-control"/>
+				<input type="password" id="j_password" name="j_password" placeholder="Password" class="form-control" />
+				<label class="checkbox"> <input type="checkbox" value="remember-me" /> Remember me </label>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			</form>
+		</div>
+		<!-- /container -->
+	
+		<h:outputScript name="js/vendor/jquery-1.11.1.min.js" />
+		<h:outputScript name="js/vendor/bootstrap.min.js" />
+		<h:outputScript name="js/main.js" />
+	</h:body>
+</html>
