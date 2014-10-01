@@ -42,22 +42,33 @@ public class AuthenticationMB {
 		FacesContext context = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = context.getExternalContext();
 		HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-
 		try {
+			if (request.getUserPrincipal() != null) {
+				request.logout();
+			}
 			request.login(username, password);
 			//			User user = userService.find(username, password);
 			//			externalContext.getSessionMap().put("user", user);
 			return "adminHome";
 		} catch (ServletException e) {
+			e.printStackTrace();
 			context.addMessage(null, new FacesMessage("Unknown login"));
 			return "loginError";
 		}
 	}
 
 	public void logout() throws IOException {
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		externalContext.invalidateSession();
-		externalContext.redirect(externalContext.getRequestContextPath() + "/login.xhtml");
+		try {
+			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+			HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+			if (request.getUserPrincipal() != null) {
+				request.logout();
+			}
+			externalContext.invalidateSession();
+			externalContext.redirect(externalContext.getRequestContextPath() + "/login.xhtml");
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public String getUsername() {
