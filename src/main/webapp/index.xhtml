@@ -3,77 +3,80 @@
    xmlns:ui="http://java.sun.com/jsf/facelets"
    xmlns:f="http://java.sun.com/jsf/core"
    xmlns:h="http://java.sun.com/jsf/html"
-   template="/WEB-INF/templates/default.xhtml">
+   template="/WEB-INF/templates/publicTemplate.xhtml">
    <ui:define name="content">
-      <h1>Welcome to JBoss AS 7!</h1>
+      <div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+			<h1 class="txt-color-red login-header-big">#{msg['projeto.nome']}</h1>
+			<div class="hero">
 
-      <p>You have successfully deployed a Java EE 6 web application
-         on JBoss AS 7.</p>
+				<div class="pull-left login-desc-box-l">
+					<h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!</h4>
+					<div class="login-app-icons">
+						<a href="javascript:void(0);" class="btn btn-danger btn-sm">Frontend Template</a>
+						<a href="javascript:void(0);" class="btn btn-danger btn-sm">Find out more</a>
+					</div>
+				</div>
+				
+				<h:graphicImage name="img/demo/iphoneview.png" styleClass="pull-right display-image" style="width:210px"/>
 
-      <h:form id="reg">
-         <h2>Register (Bean Validation example)</h2>
-         <p>Enforces annotation-based constraints defined on the
-            model class.</p>
-         <table>
-            <tr>
-               <th style="text-align: right;"><h:outputLabel
-                     for="name" value="Name:" /></th>
-               <td><h:inputText id="name" value="#{memberRegistration.newMember.name}" />
-                  <h:message for="name" errorClass="invalid" /></td>
-            </tr>
-            <tr>
-               <th style="text-align: right;"><h:outputLabel
-                     for="email" value="Email:" /></th>
-               <td><h:inputText id="email"
-                     value="#{memberRegistration.newMember.email}" /> <h:message
-                     for="email" errorClass="invalid" /></td>
-            </tr>
-            <tr>
-               <th style="text-align: right;"><h:outputLabel
-                     for="phoneNumber" value="Phone #:" /></th>
-               <td><h:inputText id="phoneNumber"
-                     value="#{memberRegistration.newMember.phoneNumber}" /> <h:message
-                     for="phoneNumber" errorClass="invalid" /></td>
-            </tr>
-         </table>
-         <p>
-            <h:commandButton id="register"
-               action="#{memberRegistration.register}" value="Register" />
-            <h:outputText value=" Registered!"
-               rendered="#{facesContext.postback and empty facesContext.messageList}"
-               style="color: green;" />
-         </p>
-      </h:form>
-      <h2>Members</h2>
-      <h:panelGroup rendered="#{empty memberListProducer.members}">
-         <em>No registered members.</em>
-      </h:panelGroup>
-      <h:dataTable var="_member" value="#{memberListProducer.members}"
-         rendered="#{not empty memberListProducer.members}">
-         <h:column>
-            <f:facet name="header">Id</f:facet>
-                #{_member.id}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Name</f:facet>
-                #{_member.name}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Email</f:facet>
-                #{_member.email}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Phone #</f:facet>
-                #{_member.phoneNumber}
-            </h:column>
-         <h:column>
-            <f:facet name="header">REST URL</f:facet>
-            <a href="#{request.contextPath}/rest/members/#{_member.id}">/rest/members/#{_member.id}</a>
-         </h:column>
-         <f:facet name="footer">
-                REST URL for all members: <a
-               href="#{request.contextPath}/rest/members">/rest/members</a>
-         </f:facet>
-      </h:dataTable>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
+					<p>
+						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+					</p>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<h5 class="about-heading">Not just your average template!</h5>
+					<p>
+						Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+			<div class="well no-padding">
+				<h:form  id="login-form" styleClass="smart-form client-form" prependId="false">
+					<header>
+						Sign In
+					</header>
+
+					<fieldset>
+						
+						<section>
+							<label class="label">E-mail</label>
+							<label class="input"> <i class="icon-append fa fa-user"></i>
+								<h:inputText id="username" value="#{authentication.username}" required="true"/>
+								<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
+						</section>
+
+						<section>
+							<label class="label">Password</label>
+							<label class="input"> <i class="icon-append fa fa-lock"></i>
+								<h:inputSecret id="password" value="#{authentication.password}" required="true" />
+								<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
+							<div class="note">
+								<a href="forgotpassword.html">Forgot password?</a>
+							</div>
+						</section>
+
+						<section>
+							<label class="checkbox">
+								<input type="checkbox" name="remember" checked="" />
+								<i></i>Stay signed in</label>
+						</section>
+					</fieldset>
+					<footer>
+						<h:commandButton value="Sign in" action="#{authentication.login}" styleClass="btn btn-primary"/>
+          					<h:messages globalOnly="true" />
+					</footer>
+				</h:form>
+			</div>
+		</div>
+	</div>
    </ui:define>
 </ui:composition>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14117464947880" configfile="/seguro/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" id="pf141201240920841" outlinks="pf141201240920842" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/public/login/login.xhtml" id="pf141201240920843" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf141201240920842" path="/pages/public/login/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf141201240920841" outlinks="pf141201240920842 pf14120917542301" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/login/login.xhtml" id="pf141201240920843" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf141201240920842" path="/pages/public/login/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/protected/home/adminHome.xhtml" id="pf14120917542302" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14120917542301" path="/pages/protected/home/adminHome.xhtml"/>
   <links id="pf141201240920842" target="pf141201240920843" source="pf141201240920841" outcome="login" redirect="true"/>
+  <links id="pf14120917542301" target="pf14120917542302" source="pf141201240920841" outcome="adminHome" redirect="true"/>
 </pageflow:Pageflow>
