@@ -5,7 +5,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -19,6 +21,13 @@ public class Corretora {
 
 	@NotNull
 	private String nome;
+	
+	@NotNull
+	private String email;
+
+	@OneToOne
+	@JoinColumn(name = "corretor")
+	private Usuario corretor;
 
 	@OneToMany(mappedBy = "corretora")
 	private List<Usuario> usuarios;
@@ -45,5 +54,21 @@ public class Corretora {
 
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
+	}
+
+	public Usuario getCorretor() {
+		return corretor;
+	}
+
+	public void setCorretor(Usuario corretor) {
+		this.corretor = corretor;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

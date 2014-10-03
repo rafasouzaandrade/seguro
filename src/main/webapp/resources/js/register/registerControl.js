@@ -1,83 +1,49 @@
 $(document).ready(function() {
 	runAllForms();
-
-	// Model i agree button
-	$("#i-agree").click(function() {
-		$this = $("#terms");
-		if ($this.checked) {
-			$('#myModal').modal('toggle');
-		} else {
-			$this.prop('checked', true);
-			$('#myModal').modal('toggle');
-		}
-	});
-
 	// Validation
 	$(function() {
-		// Validation
 		$("#smart-form-register").validate({
-
-			// Rules for form validation
 			rules : {
-				username : {
+				nomeCorretora : {
 					required : true
 				},
-				email : {
+				emailCorretora : {
 					required : true,
 					email : true
 				},
-				password : {
-					required : true,
-					minlength : 3,
-					maxlength : 20
-				},
-				passwordConfirm : {
-					required : true,
-					minlength : 3,
-					maxlength : 20,
-					equalTo : '#password'
-				},
-				firstname : {
+				login : {
 					required : true
 				},
-				lastname : {
+				senha : {
 					required : true
 				},
-				gender : {
+				nome : {
 					required : true
 				},
-				terms : {
+				sexo : {
 					required : true
 				}
 			},
 
-			// Messages for form validation
 			messages : {
-				login : {
-					required : 'Please enter your login'
+				nomeCorretora : {
+					required : 'Please select the name of the corretora'
 				},
-				email : {
+				emailCorretora : {
 					required : 'Please enter your email address',
 					email : 'Please enter a VALID email address'
 				},
-				password : {
+				login : {
+					required : 'Please enter your login'
+				},
+				senha : {
 					required : 'Please enter your password'
 				},
-				passwordConfirm : {
-					required : 'Please enter your password one more time',
-					equalTo : 'Please enter the same password as above'
-				},
-				firstname : {
+				nome : {
 					required : 'Please select your first name'
 				},
-				lastname : {
-					required : 'Please select your last name'
-				},
-				gender : {
+				sexo : {
 					required : 'Please select your gender'
-				},
-				terms : {
-					required : 'You must agree with Terms and Conditions'
 				}
 			},
 
@@ -90,7 +56,6 @@ $(document).ready(function() {
 				});
 			},
 
-			// Do not change code below
 			errorPlacement : function(error, element) {
 				error.insertAfter(element.parent());
 			}

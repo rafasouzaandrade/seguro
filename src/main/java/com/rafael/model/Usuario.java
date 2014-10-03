@@ -3,6 +3,8 @@ package com.rafael.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -36,6 +38,9 @@ public class Usuario {
 	@NotNull
 	@NotEmpty
 	private String senha;
+	
+	@Enumerated(EnumType.STRING)
+	private SexoEnum sexo;
 
 	@ManyToOne
 	@JoinColumn(name = "corretora")
@@ -91,5 +96,13 @@ public class Usuario {
 
 	public void setCorretora(Corretora corretora) {
 		this.corretora = corretora;
+	}
+
+	public SexoEnum getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(SexoEnum sexo) {
+		this.sexo = sexo;
 	}
 }

@@ -41,71 +41,56 @@
 				<div class="well no-padding">
 					<h:form id="smart-form-register" styleClass="smart-form client-form" prependId="false">
 						<header>
-							Registration is FREE*
+							Cadastra-se Agora
 						</header>
 						<fieldset>
 							<section>
 								<label class="input"> 
+									<i class="icon-append fa fa-rebel"></i>
+									<h:inputText value="#{registration.corretora.nome}" p:placeholder="#{msg['nomedacorretora']}" id="nomeCorretora"/>
+									<b class="tooltip tooltip-bottom-right">#{msg['nomedacorretora']}</b> 
+								</label>
+							</section>
+							<section>
+								<label class="input"> <i class="icon-append fa fa-envelope"></i>
+									<h:inputText value="#{registration.corretora.email}" p:placeholder="#{msg['emaildacorretora']}" id="emailCorretora"/>
+									<b class="tooltip tooltip-bottom-right">#{msg['emaildacorretora']}</b> </label>
+							</section>
+							<section>
+								<label class="input"> 
 									<i class="icon-append fa fa-user"></i>
-									<h:inputText value="#{registration.corretora.nome}" p:placeholder="Username"/>
+									<h:inputText value="#{registration.corretora.corretor.nome}" p:placeholder="#{msg['login']}" id="login"/>
 									<b class="tooltip tooltip-bottom-right">Needed to enter the website</b> 
 								</label>
 							</section>
-
-							<section>
-								<label class="input"> <i class="icon-append fa fa-envelope"></i>
-									<h:inputText value="#{registration.corretora.email}" p:placeholder="Email address"/>
-									<b class="tooltip tooltip-bottom-right">Needed to verify your account</b> </label>
-							</section>
-
 							<section>
 								<label class="input"> <i class="icon-append fa fa-lock"></i>
-									<input type="password" name="password" placeholder="Password" id="password" />
-									<b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
-							</section>
-
-							<section>
-								<label class="input"> <i class="icon-append fa fa-lock"></i>
-									<input type="password" name="passwordConfirm" placeholder="Confirm password" />
+									<h:inputSecret value="#{registration.corretora.corretor.senha}" p:placeholder="#{msg['senha']}" id="senha"/>
 									<b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
 							</section>
 						</fieldset>
 
 						<fieldset>
-							<div class="row">
-								<section class="col col-6">
-									<label class="input">
-										<input type="text" name="firstname" placeholder="First name" />
-									</label>
-								</section>
-								<section class="col col-6">
-									<label class="input">
-										<input type="text" name="lastname" placeholder="Last name" />
-									</label>
-								</section>
-							</div>
+							<section>
+								<label class="input"> 
+									<h:inputText value="#{registration.corretora.corretor.nome}" p:placeholder="#{msg['nome']}" id="nome"/>
+									<b class="tooltip tooltip-bottom-right">#{msg['nome']}</b> 
+								</label>
+							</section>
 
-							<div class="row">
-								<section class="col col-6">
-									<label class="select">
-										<select name="gender">
-											<option value="0" selected="selected" disabled="disabled">Gender</option>
-											<option value="1">Male</option>
-											<option value="2">Female</option>
-											<option value="3">Prefer not to answer</option>
-										</select> <i></i> </label>
-								</section>
-								<section class="col col-6">
-									<label class="input"> <i class="icon-append fa fa-calendar"></i>
-										<input type="text" name="request" placeholder="Request activation on" class="datepicker" data-dateformat='dd/mm/yy' />
-									</label>
-								</section>
-							</div>
+							<section>
+								<label class="select">
+									<h:selectOneMenu id="sexo" value="#{registration.corretora.corretor.sexo}">
+										 <f:selectItem itemLabel="Sexo" itemValue="" />
+										 <f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
+										 <f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
+									</h:selectOneMenu>
+									<i></i> </label>
+							</section>
 						</fieldset>
 						<footer>
-							<button type="submit" class="btn btn-primary">
-								Register
-							</button>
+							<h:commandButton value="#{msg['cadastrar']}" action="#{registration.cadastrar}" styleClass="btn btn-primary">
+							</h:commandButton>
 						</footer>
 
 						<div class="message">
