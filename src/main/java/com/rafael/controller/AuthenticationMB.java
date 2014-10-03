@@ -1,6 +1,7 @@
 package com.rafael.controller;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -16,8 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 @ViewScoped
 @Model
 @Named(value = "authentication")
-public class AuthenticationMB {
+public class AuthenticationMB implements Serializable {
 
+	private static final long serialVersionUID = 5945068513281704289L;
 	private String username;
 	private String password;
 	private String originalURL;

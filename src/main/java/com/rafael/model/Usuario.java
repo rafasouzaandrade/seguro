@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -36,8 +37,12 @@ public class Usuario {
 	@NotEmpty
 	private String senha;
 
+	@ManyToOne
+	@JoinColumn(name = "corretora")
+	private Corretora corretora;
+
 	@ManyToMany
-	@JoinTable(name = "usuario_perfil", joinColumns = {@JoinColumn(name = "usuario")}, inverseJoinColumns = {@JoinColumn(name = "perfil")})
+	@JoinTable(name = "usuario_perfil", joinColumns = { @JoinColumn(name = "usuario") }, inverseJoinColumns = { @JoinColumn(name = "perfil") })
 	private List<Perfil> perfis;
 
 	public Long getId() {
@@ -78,5 +83,13 @@ public class Usuario {
 
 	public void setPerfis(List<Perfil> perfis) {
 		this.perfis = perfis;
+	}
+
+	public Corretora getCorretora() {
+		return corretora;
+	}
+
+	public void setCorretora(Corretora corretora) {
+		this.corretora = corretora;
 	}
 }

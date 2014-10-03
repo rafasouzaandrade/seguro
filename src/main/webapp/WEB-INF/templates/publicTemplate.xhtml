@@ -21,21 +21,13 @@
 			<div id="logo-group">
 				<span id="logo"> <h:graphicImage name="img/logo.png"/></span>
 			</div>
-			<span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
+			<span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <h:outputLink value="public/register/register.jsf" styleClass="btn btn-danger">Create account</h:outputLink> </span>
 		</header>
 		
 		<!--[if IE 8]>
 			<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 		<![endif]-->
 		
-		<div id="main" role="main">
-			<!-- MAIN CONTENT -->
-			<div id="content" class="container">
-				<ui:insert name="content">
-				</ui:insert>
-			</div>
-		</div>
-
 		<h:outputScript name="js/plugin/pace/pace.min.js" />
 	    <h:outputScript name="js/libs/jquery-2.0.2.min.js" />
 	    <h:outputScript name="js/libs/jquery-ui-1.10.3.min.js" />
@@ -44,5 +36,13 @@
 		<h:outputScript name="js/plugin/jquery-validate/jquery.validate.min.js" />
 		<h:outputScript name="js/plugin/masked-input/jquery.maskedinput.min.js" />
 		<h:outputScript name="js/app.min.js" />
+		
+		<div id="main" role="main">
+			<!-- MAIN CONTENT -->
+			<div id="content" class="container">
+				<ui:insert name="content">
+				</ui:insert>
+			</div>
+		</div>
 	</body>
 </html>

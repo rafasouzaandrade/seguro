@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14117464947880" configfile="/seguro/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" id="pf141201240920841" outlinks="pf141201240920842 pf14120917542301" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/public/login/login.xhtml" id="pf141201240920843" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf141201240920842" path="/pages/public/login/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/protected/home/adminHome.xhtml" id="pf14120917542302" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14120917542301" path="/pages/protected/home/adminHome.xhtml"/>
-  <links id="pf141201240920842" target="pf141201240920843" source="pf141201240920841" outcome="login" redirect="true"/>
-  <links id="pf14120917542301" target="pf14120917542302" source="pf141201240920841" outcome="adminHome" redirect="true"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="562" id="pf141201240920841" outlinks="pf14123079510780 pf14123079510781 pf14123079510782" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/login/login.xhtml" x="122" y="946" id="pf141201240920843" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/pages/public/login/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/protected/home/adminHome.xhtml" x="122" y="1330" id="pf14120917542302" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/pages/protected/home/adminHome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="public/login/login.xhtml" x="338" y="178" id="pf14123079510783" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14123079510780" path="/public/login/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="public/login/loginError.xhtml" x="338" y="562" id="pf14123079510794" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14123079510781" path="/public/login/loginError.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="protected/home/adminHome.xhtml" x="338" y="946" id="pf14123079510795" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14123079510782" path="/protected/home/adminHome.xhtml"/>
+  <links id="pf14123079510780" target="pf14123079510783" source="pf141201240920841" outcome="login" redirect="true"/>
+  <links id="pf14123079510781" target="pf14123079510794" source="pf141201240920841" outcome="loginError" redirect="true"/>
+  <links id="pf14123079510782" target="pf14123079510795" source="pf141201240920841" outcome="adminHome" redirect="true"/>
 </pageflow:Pageflow>

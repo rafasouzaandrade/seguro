@@ -16,31 +16,31 @@ import com.rafael.sessionbeans.MemberSessionBean;
 @Named(value = "memberRegistration")
 public class MemberRegistration {
 
-   @Inject
-   private Logger log;
+	@Inject
+	private Logger log;
 
-   @Inject
-   private MemberSessionBean memberSessionBean;
+	@Inject
+	private MemberSessionBean memberSessionBean;
 
-   @Inject
-   private Event<Member> memberEventSrc;
+	@Inject
+	private Event<Member> memberEventSrc;
 
-   private Member newMember;
+	private Member newMember;
 
-   @Produces
-   public Member getNewMember() {
-      return newMember;
-   }
+	@Produces
+	public Member getNewMember() {
+		return newMember;
+	}
 
-   public void register() throws Exception {
-      log.info("Registering " + newMember.getName());
-      memberSessionBean.salvar(newMember);
-      memberEventSrc.fire(newMember);
-      initNewMember();
-   }
+	public void register() throws Exception {
+		log.info("Registering " + newMember.getName());
+		memberSessionBean.salvar(newMember);
+		memberEventSrc.fire(newMember);
+		initNewMember();
+	}
 
-   @PostConstruct
-   public void initNewMember() {
-      newMember = new Member();
-   }
+	@PostConstruct
+	public void initNewMember() {
+		newMember = new Member();
+	}
 }
