@@ -17,7 +17,7 @@
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>ADMIN</role-name>
-			<role-name>USER</role-name>
+			<role-name>CORRETOR</role-name>
 		</auth-constraint>
 	</security-constraint>
 
@@ -35,7 +35,7 @@
 		<role-name>ADMIN</role-name>
 	</security-role>
 	<security-role>
-		<role-name>USER</role-name>
+		<role-name>CORRETOR</role-name>
 	</security-role>
 
 	<mime-mapping>

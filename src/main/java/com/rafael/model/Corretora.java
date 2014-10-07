@@ -2,12 +2,15 @@ package com.rafael.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -15,21 +18,22 @@ import javax.validation.constraints.NotNull;
 @Table(name = "corretora")
 public class Corretora {
 
+	@SequenceGenerator(name = "corretora_seq", sequenceName = "corretora_seq", initialValue = 1, allocationSize = 1)
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "corretora_seq")
 	private Long id;
 
 	@NotNull
 	private String nome;
-	
+
 	@NotNull
 	private String email;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "corretor")
 	private Usuario corretor;
 
-	@OneToMany(mappedBy = "corretora")
+	@OneToMany(mappedBy = "corretora", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Usuario> usuarios;
 
 	public Long getId() {

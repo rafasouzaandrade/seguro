@@ -1,7 +1,5 @@
 package com.rafael.controller;
 
-import java.util.logging.Logger;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
@@ -10,6 +8,7 @@ import javax.inject.Named;
 
 import com.rafael.model.Corretora;
 import com.rafael.model.Usuario;
+import com.rafael.sessionbeans.CorretoraSessionBean;
 
 @Model
 @Named(value = "registration")
@@ -18,7 +17,7 @@ public class RegistrationMB {
 	private Corretora corretora;
 	
 	@Inject
-	private Logger log;
+	private CorretoraSessionBean corretoraSessionBean;
 
 	@Produces
 	public Corretora getCorretora() {
@@ -35,7 +34,8 @@ public class RegistrationMB {
 		corretora.setCorretor(new Usuario());
 	}
 
-	public void cadastrar() {
-		log.info(corretora.toString());
+	public String cadastrar() {
+		corretoraSessionBean.registarCorretora(corretora);
+		return "adminHome";
 	}
 }

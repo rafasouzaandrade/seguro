@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -22,8 +23,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "usuario", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Usuario {
 
+	@SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_seq", initialValue = 1, allocationSize = 1)
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "usuario_seq")
 	private Long id;
 
 	@NotNull
@@ -38,7 +40,7 @@ public class Usuario {
 	@NotNull
 	@NotEmpty
 	private String senha;
-	
+
 	@Enumerated(EnumType.STRING)
 	private SexoEnum sexo;
 
@@ -47,7 +49,7 @@ public class Usuario {
 	private Corretora corretora;
 
 	@ManyToMany
-	@JoinTable(name = "usuario_perfil", joinColumns = { @JoinColumn(name = "usuario") }, inverseJoinColumns = { @JoinColumn(name = "perfil") })
+	@JoinTable(name = "usuario_perfil", joinColumns = {@JoinColumn(name = "usuario")}, inverseJoinColumns = {@JoinColumn(name = "perfil")})
 	private List<Perfil> perfis;
 
 	public Long getId() {

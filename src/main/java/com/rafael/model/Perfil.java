@@ -11,13 +11,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "perfil")
 public class Perfil {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
 	@NotNull
 	@NotEmpty
 	private String nome;
+
+	public Perfil() {
+	}
+
+	public Perfil(Long id) {
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;
